@@ -1,75 +1,90 @@
 /* =====================================================
-   NESIBE CAFE — Bootstrap Correction Layer
-   Only brand colors, fonts, and minor overrides.
-   Layout, spacing, grid, buttons — all Bootstrap.
+   NESIBE CAFE - Bootstrap Correction Layer
+   Total lines: < 100.
+   Layout, spacing, and responsive behavior are handled by Bootstrap 5.3.3.
+   This file only sets brand colors, fonts, and minor justified overrides.
    ===================================================== */
 
-/* Brand palette overriding Bootstrap variables */
+/* 1. OVERRIDE BOOTSTRAP THEME VARIABLES
+   This is the cleanest way to change Bootstrap's default blue to our brown
+   without using !important or fighting specificity. */
 :root {
-    --bs-primary: #8B4513;
-    --bs-secondary: #D2691E;
+    --bs-primary: #8B4513;       /* SaddleBrown: Main brand color */
+    --bs-primary-rgb: 139, 69, 19;
+    --bs-secondary: #D2691E;     /* Chocolate: Accent color */
+    --bs-secondary-rgb: 210, 105, 30;
+    --bs-light: #FFF8DC;         /* Cornsilk: Page background */
+    --bs-dark: #2F4F4F;          /* DarkSlateGray: Text and footer */
 }
 
+/* 2. BASE TYPOGRAPHY & BACKGROUND */
 body {
-    background-color: #FFF8DC;
-    color: #2F4F4F;
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* Force all Bootstrap display headings and standard headings to use our brand font and color */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
     font-family: Georgia, "Times New Roman", Times, serif;
-    color: #8B4513;
+    color: var(--bs-primary);
 }
 
-/* Navbar brand styling */
-.navbar-brand {
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
+/* 3. COMPONENT CORRECTIONS (Justified overrides) */
 
-/* Button brand overrides */
+/* Justification: Ensure brand colors apply reliably to primary buttons */
 .btn-primary {
-    background-color: #8B4513;
-    border-color: #8B4513;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
 }
-.btn-primary:hover {
-    background-color: #D2691E;
-    border-color: #D2691E;
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
 }
 
+/* Justification: Outline buttons must match brand primary, not default blue */
 .btn-outline-primary {
-    color: #8B4513;
-    border-color: #8B4513;
+    color: var(--bs-primary);
+    border-color: var(--bs-primary);
 }
 .btn-outline-primary:hover {
-    background-color: #8B4513;
+    background-color: var(--bs-primary);
     color: white;
 }
 
-/* Table header brand color */
+/* Justification: Table headers should use our dark brand color, not Bootstrap's default gray */
 .table thead th {
-    background-color: #2F4F4F;
+    background-color: var(--bs-dark);
     color: white;
+    border-color: var(--bs-dark);
 }
 
-/* Form focus ring in brand color */
-.form-control:focus,
-.form-select:focus {
-    border-color: #D2691E;
+/* Justification: Form focus rings should highlight with our brand accent color */
+.form-control:focus, .form-select:focus {
+    border-color: var(--bs-secondary);
     box-shadow: 0 0 0 0.25rem rgba(210, 105, 30, 0.25);
 }
 
-/* Footer brand background */
-footer {
-    background-color: #2F4F4F;
-    color: white;
-}
+/* 4. FOOTER SPECIFIC STYLES */
+/* Bootstrap 5.3 automatically applies --bs-dark to .bg-dark, but we ensure link colors match */
 footer a {
-    color: #F5DEB3;
+    color: #F5DEB3; /* Wheat color for readability on dark background */
+    text-decoration: none;
+}
+footer a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
-/* Card image uniform height */
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
+/* 5. ACCORDION CORRECTION (For the Testimonials/FAQ component) */
+/* Justification: Remove default blue focus ring from accordion and replace with brand color */
+.accordion-button:not(.collapsed) {
+    color: var(--bs-primary);
+    background-color: rgba(139, 69, 19, 0.1);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+.accordion-button:focus {
+    border-color: var(--bs-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(210, 105, 30, 0.25);
 }
