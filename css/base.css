@@ -1,75 +1,118 @@
 /* =====================================================
    NESIBE CAFE - Bootstrap Correction Layer
-   Total lines: < 100.
-   Layout, spacing, and responsive behavior are handled by Bootstrap 5.3.3.
-   This file only sets brand colors, fonts, and minor justified overrides.
+   Layout by Bootstrap 5.3.3. This file: brand colors,
+   fonts, and state classes for future JS.
    ===================================================== */
 
-/* 1. OVERRIDE BOOTSTRAP THEME VARIABLES
-   This is the cleanest way to change Bootstrap's default blue to our brown
-   without using !important or fighting specificity. */
+/* 1. BRAND VARIABLES */
 :root {
-    --bs-primary: #8B4513;       /* SaddleBrown: Main brand color */
+    --bs-primary: #8B4513;
     --bs-primary-rgb: 139, 69, 19;
-    --bs-secondary: #D2691E;     /* Chocolate: Accent color */
+    --bs-secondary: #D2691E;
     --bs-secondary-rgb: 210, 105, 30;
-    --bs-light: #FFF8DC;         /* Cornsilk: Page background */
-    --bs-dark: #2F4F4F;          /* DarkSlateGray: Text and footer */
+    --bs-light: #FFF8DC;
+    --bs-dark: #2F4F4F;
+}
+/* Active nav link styling — shows which page the user is on */
+.navbar-nav .nav-link.active {
+    background-color: var(--bs-primary);
+    color: white !important;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
 }
 
-/* 2. BASE TYPOGRAPHY & BACKGROUND */
+.navbar-nav .nav-link:hover:not(.active) {
+    color: #F5DEB3 !important;
+}
+
+/* 2. BASE TYPOGRAPHY — Elegant font stack */
 body {
     background-color: var(--bs-light);
     color: var(--bs-dark);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
-/* Force all Bootstrap display headings and standard headings to use our brand font and color */
+/* Headings: elegant serif font, larger sizes */
 h1, h2, h3, h4, h5, h6,
-.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    color: var(--bs-primary);
+.display-1, .display-2, .display-3,
+.display-4, .display-5, .display-6 {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+    color: var(--bs-light);
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
-/* 3. COMPONENT CORRECTIONS (Justified overrides) */
+/* Hero header styling — large, elegant text */
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+}
 
-/* Justification: Ensure brand colors apply reliably to primary buttons */
+header .lead {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    font-style: italic;
+}
+
+/* 3. COMPONENT OVERRIDES */
 .btn-primary {
     background-color: var(--bs-primary);
     border-color: var(--bs-primary);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
 }
 .btn-primary:hover, .btn-primary:focus {
     background-color: var(--bs-secondary);
     border-color: var(--bs-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Justification: Outline buttons must match brand primary, not default blue */
 .btn-outline-primary {
     color: var(--bs-primary);
     border-color: var(--bs-primary);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
 }
 .btn-outline-primary:hover {
     background-color: var(--bs-primary);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Justification: Table headers should use our dark brand color, not Bootstrap's default gray */
+/* Hero buttons — larger, more prominent */
+header .btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .table thead th {
     background-color: var(--bs-dark);
     color: white;
     border-color: var(--bs-dark);
 }
 
-/* Justification: Form focus rings should highlight with our brand accent color */
 .form-control:focus, .form-select:focus {
     border-color: var(--bs-secondary);
     box-shadow: 0 0 0 0.25rem rgba(210, 105, 30, 0.25);
 }
 
-/* 4. FOOTER SPECIFIC STYLES */
-/* Bootstrap 5.3 automatically applies --bs-dark to .bg-dark, but we ensure link colors match */
 footer a {
-    color: #F5DEB3; /* Wheat color for readability on dark background */
+    color: #F5DEB3;
     text-decoration: none;
 }
 footer a:hover {
@@ -77,14 +120,100 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* 5. ACCORDION CORRECTION (For the Testimonials/FAQ component) */
-/* Justification: Remove default blue focus ring from accordion and replace with brand color */
-.accordion-button:not(.collapsed) {
-    color: var(--bs-primary);
-    background-color: rgba(139, 69, 19, 0.1);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
 }
-.accordion-button:focus {
-    border-color: var(--bs-secondary);
-    box-shadow: 0 0 0 0.25rem rgba(210, 105, 30, 0.25);
+
+/* 4. NAVBAR STYLING — No logo, just elegant text */
+.navbar-brand {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: white !important;
+}
+
+.navbar-brand:hover {
+    color: #F5DEB3 !important;
+}
+
+/* 5. STATIC TESTIMONIAL/FAQ BLOCKS */
+.static-faq-item {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+}
+
+.static-faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--bs-primary);
+}
+
+.static-faq-item p {
+    margin-bottom: 0;
+    color: var(--bs-dark);
+}
+
+/* 6. STATE CLASSES FOR JAVASCRIPT */
+.hidden { display: none !important; }
+.visible { display: block; }
+
+.active {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.selected {
+    border: 2px solid var(--bs-primary);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.2);
+}
+
+.error {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5;
+}
+
+.success {
+    border-color: #198754 !important;
+    background-color: #f0fff4;
+}
+
+/* Empty containers where JS will show results later */
+#form-result,
+#event-result,
+#feedback-result,
+#error-message,
+#success-message,
+#order-summary,
+#booking-confirmation,
+#lightbox-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.375rem;
+}
+
+#form-result.show,
+#event-result.show,
+#feedback-result.show {
+    display: block;
+}
+
+#form-result.success,
+#event-result.success,
+#feedback-result.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+#form-result.error,
+#event-result.error,
+#feedback-result.error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
 }

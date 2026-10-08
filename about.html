@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
   <div class="container">
     <a class="navbar-brand" href="index.html">Nesibe Cafe</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
@@ -22,7 +22,7 @@
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
         <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
       </ul>
@@ -30,6 +30,10 @@
   </div>
 </nav>
 
+<!-- COMMENT: Using container-fluid here because the header background must span
+     the full width of the screen (100%) on all devices. A regular .container
+     would leave white margins on the sides. The nested .container inside keeps
+     the text centered and readable. -->
 <header class="container-fluid bg-primary text-white py-4 text-center">
   <div class="container">
     <h1 class="display-5 fw-bold">About Us</h1>
@@ -39,10 +43,10 @@
 
 <main class="container my-5">
 
-  <!-- STORY: Image floated with float utility, text re-aligned on mobile -->
-  <section class="row mb-5 align-items-center">
+  <!-- STORY SECTION -->
+  <section class="row mb-5 align-items-center" id="story-section">
     <div class="col-12 col-md-5 mb-4 mb-md-0">
-      <img src="images/cafe-interior.jpg" class="img-fluid rounded shadow" alt="Interior of Nesibe Ethnic Cafe">
+      <img src="images/cafe-interior.jpg" class="img-fluid rounded shadow" alt="Interior of Nesibe Ethnic Cafe with traditional Kazakh decor">
     </div>
     <div class="col-12 col-md-7">
       <h2 class="display-6">Our Story</h2>
@@ -50,13 +54,13 @@
       <p>Nesibe was born from a dream to bring the flavors of the Kazakh steppe to a modern, welcoming setting. The name means "blessing" in Kazakh.</p>
       <blockquote class="blockquote border-start border-4 border-warning ps-3">
         <p class="mb-0">"I wanted to build a cafe where my grandmother's recipes would not be forgotten."</p>
-        <footer class="blockquote-footer mt-2">Aigerim Tleubergenova, <cite title="Founder">Founder</cite></footer>
+        <footer class="blockquote-footer mt-2 text-muted">Aigerim Tleubergenova, <cite title="Founder">Founder</cite></footer>
       </blockquote>
     </div>
   </section>
 
   <!-- MISSION: 3-column grid -->
-  <section class="mb-5">
+  <section class="mb-5" id="mission-section">
     <h2 class="text-center mb-4">Our Mission</h2>
     <div class="row g-4">
       <div class="col-12 col-md-4">
@@ -86,46 +90,54 @@
     </div>
   </section>
 
-  <!-- TEAM: Nested row inside column -->
-  <section class="mb-5 bg-light p-4 rounded">
-    <h2 class="mb-4">Our Team</h2>
-    <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card text-center shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 card-title">Aigerim Tleubergenova</h3>
-            <p class="text-muted small">Founder &amp; Head Chef</p>
-            <p class="card-text">15 years of culinary experience across Central Asia.</p>
+  <!-- TEAM: NESTING DEMONSTRATION (Row inside a Column) -->
+  <section class="mb-5 bg-light p-4 rounded" id="team-section">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="mb-4 text-center">Our Team</h2>
+        <!-- This row is nested inside the col-12 above, fulfilling the nesting requirement -->
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center shadow-sm h-100" id="team-aigerim">
+              <div class="card-body">
+                <h3 class="h5 card-title">Aigerim Tleubergenova</h3>
+                <p class="text-muted small">Founder &amp; Head Chef</p>
+                <p class="card-text">15 years of culinary experience across Central Asia.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card text-center shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 card-title">Yerlan Nurpeisov</h3>
-            <p class="text-muted small">General Manager</p>
-            <p class="card-text">Oversees daily operations and guest relations.</p>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center shadow-sm h-100" id="team-yerlan">
+              <div class="card-body">
+                <h3 class="h5 card-title">Yerlan Nurpeisov</h3>
+                <p class="text-muted small">General Manager</p>
+                <p class="card-text">Oversees daily operations and guest relations.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card text-center shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 card-title">Dana Sarsenova</h3>
-            <p class="text-muted small">Pastry Chef</p>
-            <p class="card-text">Specializes in traditional Kazakh desserts.</p>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center shadow-sm h-100" id="team-dana">
+              <div class="card-body">
+                <h3 class="h5 card-title">Dana Sarsenova</h3>
+                <p class="text-muted small">Pastry Chef</p>
+                <p class="card-text">Specializes in traditional Kazakh desserts.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="text-center mt-4">
+      <a href="contact.html#feedback-form" class="btn btn-primary">Send Us a Question</a>
+    </div>
   </section>
 
   <!-- VALUES TABLE -->
-  <section class="mb-5">
+  <section class="mb-5" id="values-section">
     <h2 class="mb-4">Our Values</h2>
     <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
+      <table class="table table-hover table-striped">
+        <thead class="table-dark">
         <tr><th scope="col">Value</th><th scope="col">Meaning</th><th scope="col">Practice</th></tr>
         </thead>
         <tbody>
@@ -138,59 +150,40 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS with accordion component -->
-  <section class="mb-5">
+  <!-- TESTIMONIALS: Static blocks (accordion replaced for no-JS requirement)
+       All testimonials are visible at once. JS will later convert these into an interactive accordion. -->
+  <section class="mb-5" id="testimonials-section">
     <h2 class="mb-4">What Our Guests Say</h2>
-    <!-- Bootstrap Accordion Component - adapted for customer testimonials -->
-    <div class="accordion" id="testimonialAccordion">
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#test1">
-            Marat K., regular customer
-          </button>
-        </h3>
-        <div id="test1" class="accordion-collapse collapse show" data-bs-parent="#testimonialAccordion">
-          <div class="accordion-body">
-            "The besbarmak here reminds me of my grandmother's cooking. It's the most authentic I've found in the city." — February 2024
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#test2">
-            Saule B., business client
-          </button>
-        </h3>
-        <div id="test2" class="accordion-collapse collapse show" data-bs-parent="#testimonialAccordion">
-          <div class="accordion-body">
-            "I brought my foreign colleagues here and they were amazed by the kumis and the horse meat burger. A true cultural experience!" — March 2024
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#test3">
-            The Omarov Family
-          </button>
-        </h3>
-        <div id="test3" class="accordion-collapse collapse show" data-bs-parent="#testimonialAccordion">
-          <div class="accordion-body">
-            "The atmosphere is so cozy and the staff is incredibly friendly. We come here every weekend with our family." — April 2024
-          </div>
-        </div>
-      </div>
+
+    <div class="static-faq-item" id="testimonial-1">
+      <h3>Marat K., regular customer — February 2024</h3>
+      <p>"The besbarmak here reminds me of my grandmother's cooking. It's the most authentic I've found in the city."</p>
+    </div>
+
+    <div class="static-faq-item" id="testimonial-2">
+      <h3>Saule B., business client — March 2024</h3>
+      <p>"I brought my foreign colleagues here and they were amazed by the kumis and the horse meat burger. A true cultural experience!"</p>
+    </div>
+
+    <div class="static-faq-item" id="testimonial-3">
+      <h3>The Omarov Family — April 2024</h3>
+      <p>"The atmosphere is so cozy and the staff is incredibly friendly. We come here every weekend with our family."</p>
     </div>
   </section>
 
+  <!-- Empty containers for future JS -->
+  <div id="feedback-result" class="hidden" role="alert" aria-live="polite"></div>
+
 </main>
 
-<footer class="container-fluid py-4 mt-5">
+<footer class="container-fluid py-4 mt-5 bg-dark text-white">
   <div class="container text-center">
     <p class="mb-1">Nesibe Ethnic Cafe &copy; 2024. All rights reserved.</p>
     <p class="small text-warning mb-0">Made with &hearts; by Student Two</p>
   </div>
 </footer>
 
+<!-- NO JavaScript bundle: JS is not allowed until after midterm freeze. -->
 
 </body>
 </html>

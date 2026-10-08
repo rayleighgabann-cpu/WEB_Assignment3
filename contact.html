@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="index.html">Nesibe Cafe</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
@@ -43,24 +43,25 @@
 
         <!-- BOOKING FORM -->
         <div class="col-12 col-lg-7">
-            <section class="bg-white p-4 rounded shadow-sm">
+            <section class="bg-white p-4 rounded shadow-sm" id="booking-form-section">
                 <h2 class="h3 mb-4">Book a Table</h2>
-                <!-- This form does not send data to any server yet. Action is placeholder. -->
-                <form method="POST" action="#" id="booking-form">
+                <!-- This form does not send data to any server yet. Action is placeholder.
+                     JavaScript will handle submission in future assignments. -->
+                <form method="POST" action="#" id="booking-form" novalidate>
                     <fieldset class="border p-3 rounded mb-4">
                         <legend class="float-none w-auto px-2 fs-5">Personal Information</legend>
                         <div class="mb-3">
                             <label for="guest-name" class="form-label">Full Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="guest-name" required placeholder="Aigerim Tleubergenova">
+                            <input type="text" class="form-control" id="guest-name" name="name" required placeholder="Aigerim Tleubergenova">
                         </div>
                         <div class="row g-3">
                             <div class="col-12 col-md-6">
                                 <label for="guest-email" class="form-label">Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="guest-email" required placeholder="name@example.com">
+                                <input type="email" class="form-control" id="guest-email" name="email" required placeholder="name@example.com">
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="guest-phone" class="form-label">Phone <span class="text-danger">*</span></label>
-                                <input type="tel" class="form-control" id="guest-phone" required placeholder="+7 (701) ...">
+                                <input type="tel" class="form-control" id="guest-phone" name="phone" required placeholder="+7 (701) ...">
                             </div>
                         </div>
                     </fieldset>
@@ -70,31 +71,41 @@
                         <div class="row g-3">
                             <div class="col-12 col-md-6">
                                 <label for="booking-date" class="form-label">Date <span class="text-danger">*</span></label>
-                                <input type="date" class="form-control" id="booking-date" required>
+                                <input type="date" class="form-control" id="booking-date" name="date" required>
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="guest-count" class="form-label">Guests <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="guest-count" min="1" max="20" required placeholder="4">
+                                <input type="number" class="form-control" id="guest-count" name="guests" min="1" max="20" required placeholder="4">
                             </div>
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="seating" class="form-label">Seating Preference</label>
-                            <select class="form-select" id="seating">
+                            <select class="form-select" id="seating" name="seating">
                                 <option selected>Choose...</option>
                                 <option value="indoor">Indoor</option>
                                 <option value="outdoor">Outdoor Terrace</option>
                                 <option value="vip">VIP Room</option>
+                                <option value="bar">Bar Area</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="special-requests" class="form-label">Special Requests</label>
-                            <textarea class="form-control" id="special-requests" rows="3" placeholder="Allergies, dietary needs..."></textarea>
+                            <textarea class="form-control" id="special-requests" name="requests" rows="3" placeholder="Allergies, dietary needs..."></textarea>
                         </div>
                     </fieldset>
 
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-lg">Reserve Table</button>
-                        <button type="reset" class="btn btn-outline-secondary">Clear Form</button>
+                        <button type="submit" class="btn btn-primary btn-lg" id="booking-submit">Reserve Table</button>
+                        <button type="reset" class="btn btn-outline-secondary" id="booking-reset">Clear Form</button>
+                    </div>
+
+                    <!-- Empty container where JS will show confirmation or error after submit -->
+                    <div id="form-result" role="alert" aria-live="polite"></div>
+
+                    <!-- Explanation of what happens after submit (required by midterm) -->
+                    <div class="alert alert-info mt-4" role="alert">
+                        <strong>What happens next?</strong> After you submit this form, we will call you within 2 hours
+                        during working hours to confirm your reservation. You will also receive a confirmation email.
                     </div>
                 </form>
             </section>
@@ -102,7 +113,7 @@
 
         <!-- CONTACT INFO + FAQ -->
         <div class="col-12 col-lg-5">
-            <section class="bg-dark text-white p-4 rounded shadow-sm mb-4">
+            <section class="bg-dark text-white p-4 rounded shadow-sm mb-4" id="contact-info-section">
                 <h2 class="h3 text-warning mb-3">Contact Info</h2>
                 <address class="mb-0">
                     <strong>Nesibe Ethnic Cafe</strong><br>
@@ -113,40 +124,59 @@
                 </address>
             </section>
 
-            <!-- FAQ with Bootstrap Accordion -->
-            <section>
+            <!-- FEEDBACK FORM -->
+            <section class="bg-white p-4 rounded shadow-sm mb-4" id="feedback-form-section">
+                <h2 class="h3 mb-4">Send Feedback</h2>
+                <!-- This form does not send data to any server yet. Action is placeholder. -->
+                <form method="POST" action="#" id="feedback-form" novalidate>
+                    <div class="mb-3">
+                        <label for="feedback-name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="feedback-name" name="name" placeholder="Optional">
+                    </div>
+                    <div class="mb-3">
+                        <label for="feedback-email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="feedback-email" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="feedback-rating" class="form-label">Rating (1-5) <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="feedback-rating" name="rating" min="1" max="5" required placeholder="5">
+                    </div>
+                    <div class="mb-3">
+                        <label for="feedback-message" class="form-label">Message <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="feedback-message" name="message" rows="4" required placeholder="Tell us about your experience..."></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary" id="feedback-submit">Send Feedback</button>
+                    </div>
+
+                    <!-- Empty container where JS will show confirmation -->
+                    <div id="feedback-result" role="alert" aria-live="polite"></div>
+
+                    <div class="alert alert-info mt-3" role="alert">
+                        <strong>What happens next?</strong> We read every feedback message and respond within 24 hours.
+                        Thank you for helping us improve!
+                    </div>
+                </form>
+            </section>
+
+            <!-- FAQ: Static blocks (accordion replaced for no-JS requirement)
+                 All FAQ items are visible at once. JS will later convert these into an interactive accordion. -->
+            <section id="faq-section">
                 <h2 class="h3 mb-3">FAQ</h2>
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h3 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Vegetarian options?
-                            </button>
-                        </h3>
-                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">Yes! Vegetable plov, fresh salads, traditional breads.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header">
-                            <button class="accordion-button collapse show" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                Child-friendly?
-                            </button>
-                        </h3>
-                        <div id="faq2" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">Absolutely. Highchairs, kids menu, play corner.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header">
-                            <button class="accordion-button collapse show" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                Payment methods?
-                            </button>
-                        </h3>
-                        <div id="faq3" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">Cash, Visa, Mastercard, Kaspi QR.</div>
-                        </div>
-                    </div>
+
+                <div class="static-faq-item" id="faq-1">
+                    <h3>Vegetarian options?</h3>
+                    <p>Yes! Vegetable plov, fresh salads, traditional breads.</p>
+                </div>
+
+                <div class="static-faq-item" id="faq-2">
+                    <h3>Child-friendly?</h3>
+                    <p>Absolutely. Highchairs, kids menu, play corner.</p>
+                </div>
+
+                <div class="static-faq-item" id="faq-3">
+                    <h3>Payment methods?</h3>
+                    <p>Cash, Visa, Mastercard, Kaspi QR.</p>
                 </div>
             </section>
         </div>
@@ -154,13 +184,14 @@
     </div>
 </main>
 
-<footer class="container-fluid py-4 mt-5">
+<footer class="container-fluid py-4 mt-5 bg-dark text-white">
     <div class="container text-center">
         <p class="mb-1">Nesibe Ethnic Cafe &copy; 2024. All rights reserved.</p>
         <p class="small text-warning mb-0">Made with &hearts; by Student Two</p>
     </div>
 </footer>
 
+<!-- NO JavaScript bundle: JS is not allowed until after midterm freeze. -->
 
 </body>
 </html>

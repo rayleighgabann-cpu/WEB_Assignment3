@@ -14,15 +14,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="index.html">Nesibe Cafe</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/about.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
             </ul>
@@ -40,7 +40,7 @@
 <main class="container my-5">
 
     <!-- INTRO -->
-    <section class="mb-5 text-center">
+    <section class="mb-5 text-center" id="gallery-intro">
         <p class="lead">Browse photos of our dishes, cozy interior, and wonderful team.</p>
         <p class="text-muted small">All photos taken by our staff and guests.</p>
     </section>
@@ -50,7 +50,7 @@
         <h2 class="mb-4">Our Dishes</h2>
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm" id="gallery-pizza">
                     <img src="images/pizza.jpg" class="card-img-top" alt="Margherita pizza with fresh basil">
                     <div class="card-body">
                         <h3 class="h5 card-title">Signature Pizzas</h3>
@@ -59,8 +59,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="images/burger.jpg" class="card-img-top" alt="Horse meat burger">
+                <div class="card h-100 shadow-sm" id="gallery-burger">
+                    <img src="images/burger.jpg" class="card-img-top" alt="Horse meat burger with fresh vegetables">
                     <div class="card-body">
                         <h3 class="h5 card-title">Traditional Burgers</h3>
                         <p class="card-text">100% horse meat from local farms, ground fresh daily.</p>
@@ -68,8 +68,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="images/dessert.jpg" class="card-img-top" alt="Chak-chak dessert">
+                <div class="card h-100 shadow-sm" id="gallery-dessert">
+                    <img src="images/dessert.jpg" class="card-img-top" alt="Chak-chak dessert with honey glaze">
                     <div class="card-body">
                         <h3 class="h5 card-title">Sweet Endings</h3>
                         <p class="card-text">Hand-made chak-chak with warm honey, prepared every morning.</p>
@@ -80,32 +80,33 @@
     </section>
 
     <!-- INTERIOR: Nested row -->
-    <section class="mb-5 bg-light p-4 rounded">
+    <section class="mb-5 bg-light p-4 rounded" id="interior-gallery">
         <h2 class="mb-4">Our Interior</h2>
         <div class="row align-items-center">
             <div class="col-12 col-md-6 mb-3 mb-md-0">
-                <img src="images/cafe-interior.jpg" class="img-fluid rounded shadow" alt="Interior with traditional Kazakh textiles">
+                <img src="images/cafe-interior.jpg" class="img-fluid rounded shadow" alt="Interior with traditional Kazakh textiles and wooden furniture">
             </div>
             <div class="col-12 col-md-6">
                 <p class="lead">Modern comfort meets traditional Kazakh aesthetics.</p>
                 <ul class="list-unstyled">
-                    <li class="mb-2">✓ Hand-embroidered tekemet on walls</li>
-                    <li class="mb-2">✓ Carved wooden tables</li>
-                    <li class="mb-2">✓ Shanyrak ceiling decorations</li>
-                    <li class="mb-2">✓ Cozy fireplace corner</li>
-                    <li>✓ Mountain-view terrace</li>
+                    <li class="mb-2">&#10003; Hand-embroidered tekemet on walls</li>
+                    <li class="mb-2">&#10003; Carved wooden tables</li>
+                    <li class="mb-2">&#10003; Shanyrak ceiling decorations</li>
+                    <li class="mb-2">&#10003; Cozy fireplace corner</li>
+                    <li>&#10003; Mountain-view terrace</li>
                 </ul>
+                <a href="contact.html" class="btn btn-primary mt-3">Visit Us</a>
             </div>
         </div>
     </section>
 
     <!-- DRINKS -->
-    <section class="mb-5">
+    <section class="mb-5" id="drinks-gallery">
         <h2 class="mb-4">Our Drinks</h2>
         <div class="row g-4">
             <div class="col-12 col-md-6">
-                <div class="card shadow-sm">
-                    <img src="images/tea-ceremony.jpg" class="card-img-top" alt="Tea ceremony with samovar">
+                <div class="card shadow-sm" id="gallery-tea">
+                    <img src="images/tea-ceremony.jpg" class="card-img-top" alt="Tea ceremony with samovar and traditional bowls">
                     <div class="card-body">
                         <h3 class="h5 card-title">Tea Ceremony</h3>
                         <p class="card-text">15+ varieties from classic black to our house Nesibe blend. Samovar experience for groups.</p>
@@ -113,8 +114,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="card shadow-sm">
-                    <img src="images/kumis.jpg" class="card-img-top" alt="Kumis in ceramic bowl">
+                <div class="card shadow-sm" id="gallery-kumis">
+                    <img src="images/kumis.jpg" class="card-img-top" alt="Kumis in traditional ceramic bowl">
                     <div class="card-body">
                         <h3 class="h5 card-title">National Drinks</h3>
                         <p class="card-text">Kumis and shubat from local Almaty farms. Rich in probiotics, unique tangy flavor.</p>
@@ -125,21 +126,26 @@
     </section>
 
     <!-- TEAM -->
-    <section class="mb-5 text-center">
+    <section class="mb-5 text-center" id="team-gallery">
         <h2 class="mb-4">Our Team</h2>
-        <img src="images/team.jpg" class="img-fluid rounded shadow mb-3" alt="Nesibe team in the kitchen">
+        <img src="images/team.jpg" class="img-fluid rounded shadow mb-3" alt="Nesibe team standing together in the kitchen">
         <p class="lead">12 dedicated professionals sharing a passion for hospitality.</p>
+        <a href="about.html#team-section" class="btn btn-outline-primary">Meet the Team</a>
     </section>
+
+    <!-- Empty container for future lightbox functionality -->
+    <div id="lightbox-container" class="hidden" role="dialog" aria-modal="true"></div>
 
 </main>
 
-<footer class="container-fluid py-4 mt-5">
+<footer class="container-fluid py-4 mt-5 bg-dark text-white">
     <div class="container text-center">
         <p class="mb-1">Nesibe Ethnic Cafe &copy; 2024. All rights reserved.</p>
         <p class="small text-warning mb-0">Made with &hearts; by Student Three</p>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- NO JavaScript bundle: JS is not allowed until after midterm freeze. -->
+
 </body>
 </html>

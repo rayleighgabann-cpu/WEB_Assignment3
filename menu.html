@@ -13,18 +13,18 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="../WEB_Assignment3/.idea/index.html">Nesibe Cafe</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <a class="navbar-brand" href="index.html">Nesibe Cafe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/.idea/index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/about.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/gallery.html">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="../WEB_Assignment3/.idea/events.html">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
             </ul>
         </div>
     </div>
@@ -39,48 +39,58 @@
 
 <main class="container my-5">
 
-    <!-- MENU INTRO with badge component -->
-    <section class="mb-5 p-4 bg-light rounded shadow-sm">
+    <!-- MENU INTRO with Badge component -->
+    <!-- Bootstrap Badge component adapted: changed colors to brand colors and added menu categories -->
+    <section class="mb-5 p-4 bg-light rounded shadow-sm" id="menu-intro">
         <h2 class="h3">About Our Menu</h2>
         <p class="lead">Our menu combines traditional Kazakh dishes with modern cafe offerings.</p>
         <p>
             <span class="badge bg-danger me-2">Spicy</span>
-            <span class="badge bg-success">Vegetarian</span>
-            <span class="text-muted small ms-3">All dishes prepared fresh daily</span>
+            <span class="badge bg-success me-2">Vegetarian</span>
+            <span class="text-muted small">All dishes prepared fresh daily</span>
         </p>
     </section>
 
-    <!-- PIZZAS: 3 breakpoints grid -->
-    <section class="mb-5">
+    <!-- PIZZAS: 3 breakpoints -->
+    <section class="mb-5" id="pizza-section">
         <h2 class="mb-4">Pizza (30 cm)</h2>
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="images/pizza.jpg" class="card-img-top" alt="Margherita pizza">
-                    <div class="card-body">
+                <div class="card h-100 shadow-sm" id="dish-margherita">
+                    <img src="images/pizza.jpg" class="card-img-top" alt="Margherita pizza with fresh basil">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="h5 card-title">Margherita</h3>
-                        <p class="card-text small">Tomato sauce, mozzarella, fresh basil</p>
-                        <span class="badge bg-primary">2,750 &#8376;</span>
+                        <p class="card-text small flex-grow-1">Tomato sauce, mozzarella, fresh basil</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="badge bg-primary fs-6">2,750 &#8376;</span>
+                            <a href="contact.html#booking-form" class="btn btn-sm btn-outline-primary">Order</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm" id="dish-pepperoni">
                     <img src="images/pizza.jpg" class="card-img-top" alt="Pepperoni pizza">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="h5 card-title">Pepperoni</h3>
-                        <p class="card-text small">Tomato sauce, mozzarella, spicy pepperoni</p>
-                        <span class="badge bg-primary">3,150 &#8376;</span>
+                        <p class="card-text small flex-grow-1">Tomato sauce, mozzarella, spicy pepperoni</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="badge bg-primary fs-6">3,150 &#8376;</span>
+                            <a href="contact.html#booking-form" class="btn btn-sm btn-outline-primary">Order</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="images/pizza.jpg" class="card-img-top" alt="Duck pizza">
-                    <div class="card-body">
+                <div class="card h-100 shadow-sm" id="dish-duck">
+                    <img src="images/pizza.jpg" class="card-img-top" alt="Duck pizza with caramelized onions">
+                    <div class="card-body d-flex flex-column">
                         <h3 class="h5 card-title">Duck Pizza</h3>
-                        <p class="card-text small">Roasted duck, caramelized onions, hoisin sauce</p>
-                        <span class="badge bg-primary">3,350 &#8376;</span>
+                        <p class="card-text small flex-grow-1">Roasted duck, caramelized onions, hoisin sauce</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="badge bg-primary fs-6">3,350 &#8376;</span>
+                            <a href="contact.html#booking-form" class="btn btn-sm btn-outline-primary">Order</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,25 +98,25 @@
     </section>
 
     <!-- BURGERS TABLE -->
-    <section class="mb-5">
+    <section class="mb-5" id="burger-section">
         <h2 class="mb-4">Burgers</h2>
         <div class="table-responsive">
             <table class="table table-bordered align-middle">
                 <thead>
-                <tr><th scope="col">Burger</th><th scope="col">Price</th></tr>
+                <tr><th scope="col">Burger</th><th scope="col">Price</th><th scope="col">Action</th></tr>
                 </thead>
                 <tbody>
-                <tr><th scope="row">Classic Burger</th><td>2,900 &#8376;</td></tr>
-                <tr><th scope="row">Double Burger</th><td>3,590 &#8376;</td></tr>
-                <tr><th scope="row">Horse Meat Burger</th><td>2,990 &#8376;</td></tr>
-                <tr><th scope="row">Double Horse Meat</th><td>3,590 &#8376;</td></tr>
+                <tr><th scope="row">Classic Burger</th><td>2,900 &#8376;</td><td><a href="contact.html#booking-form" class="btn btn-sm btn-outline-primary">Order</a></td></tr>
+                <tr><th scope="row">Double Burger</th><td>3,590 &#8376;</td><td><a href="contact.html#booking-form" class="btn btn-sm btn-outline-primary">Order</a></td></tr>
+                <tr><th scope="row">Horse Meat Burger</th><td>2,990 &#8376;</td><td><a href="contact.html#booking-form" class="btn btn-sm btn-outline-primary">Order</a></td></tr>
+                <tr><th scope="row">Double Horse Meat</th><td>3,590 &#8376;</td><td><a href="contact.html#booking-form" class="btn btn-sm btn-outline-primary">Order</a></td></tr>
                 </tbody>
             </table>
         </div>
     </section>
 
     <!-- TEAS: Nested row inside column -->
-    <section class="mb-5">
+    <section class="mb-5" id="tea-section">
         <h2 class="mb-4">Tea Selection</h2>
         <div class="row g-3">
             <div class="col-12 col-md-6">
@@ -134,7 +144,7 @@
     </section>
 
     <!-- COFFEE TABLE -->
-    <section class="mb-5">
+    <section class="mb-5" id="coffee-section">
         <h2 class="mb-4">Coffee</h2>
         <div class="table-responsive">
             <table class="table table-striped">
@@ -151,20 +161,32 @@
         </div>
     </section>
 
-    <!-- Button 4: Success large -->
-    <div class="text-center mb-5">
-        <a href="../WEB_Assignment3/contact.html" class="btn btn-success btn-lg px-5">Reserve a Table</a>
-    </div>
+    <!-- CTA with 4 button variants -->
+    <section class="text-center mb-5 p-4 bg-light rounded" id="menu-cta">
+        <h3 class="h4 mb-3">Ready to taste authentic Kazakh cuisine?</h3>
+        <!-- Button 1: Primary large -->
+        <a href="contact.html#booking-form" class="btn btn-primary btn-lg me-2">Reserve a Table</a>
+        <!-- Button 2: Outline -->
+        <a href="events.html" class="btn btn-outline-primary me-2">View Events</a>
+        <!-- Button 3: Secondary -->
+        <a href="tel:+77271234567" class="btn btn-secondary me-2">Call Us</a>
+        <!-- Button 4: Disabled state -->
+        <button class="btn btn-warning" disabled>Delivery (Coming Soon)</button>
+    </section>
+
+    <!-- Empty container for future JS order summary -->
+    <div id="order-summary" class="hidden" role="status" aria-live="polite"></div>
 
 </main>
 
-<footer class="container-fluid py-4 mt-5">
+<footer class="container-fluid py-4 mt-5 bg-dark text-white">
     <div class="container text-center">
         <p class="mb-1">Nesibe Ethnic Cafe &copy; 2024. All rights reserved.</p>
         <p class="small text-warning mb-0">Made with &hearts; by Student One</p>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- NO JavaScript bundle: JS is not allowed until after midterm freeze. -->
+
 </body>
 </html>
